@@ -3,9 +3,16 @@ import random
 import time
 
 #Array variables
-maxArraySize = 200
-arrayValues = [0 for i in range(maxArraySize)]
+MAX_ARRAY_SIZE = 200
+arrayValues = [0 for i in range(MAX_ARRAY_SIZE)]
 barWidth = 1.0
+
+#Colors
+BLUE = '#4B8BC0'
+DARKBLUE = '#4682B4'
+DARKESTBLUE = '#355C96'
+RED = '#E2635B'
+GRAY = '#DDDDDD'
 
 def main():
     #UI
@@ -13,17 +20,10 @@ def main():
     root.title("Sorting Algorithm Visualizer")
     root.geometry("900x575")
 
-    #Colors
-    BLUE = '#4B8BC0'
-    DARKBLUE = '#4682B4'
-    DARKESTBLUE = '#355C96'
-    RED = '#E2635B'
-    GRAY = '#DDDDDD'
-
     #Initialize and set array values on canvas
     arrayCanvas = Canvas(root, width=750, height=500)
     arrayCanvas.pack(side=BOTTOM)
-    arrayValuesAsLines = [arrayCanvas.create_line(i, 500, i, 500 - arrayValues[i], fill=BLUE) for i in range(maxArraySize)]
+    arrayValuesAsLines = [arrayCanvas.create_line(i, 500, i, 500 - arrayValues[i], fill=BLUE) for i in range(MAX_ARRAY_SIZE)]
 
     def initializeArray(arraySize='150'):
         i = 0
@@ -68,7 +68,7 @@ def main():
     textInOptionMenu.set("Heap Sort")
     sortSelectionOptionMenu = OptionMenu(navigationFrame, textInOptionMenu, "Heap Sort", "Merge Sort", "Quick Sort", "Bubble Sort")
     arraySizeText = Label(navigationFrame, text='Array Size:')
-    arraySizeScale = Scale(navigationFrame,  from_=15, to=maxArraySize, orient=HORIZONTAL, sliderlength=15, command=initializeArray)
+    arraySizeScale = Scale(navigationFrame,  from_=15, to=MAX_ARRAY_SIZE, orient=HORIZONTAL, sliderlength=15, command=initializeArray)
     arraySizeScale.set(100)
     sortButton = Button(navigationFrame, text='Sort This Array', highlightbackground=GRAY, command=startSorting)
 
