@@ -6,6 +6,7 @@ import time
 MAX_ARRAY_SIZE = 200
 arrayValues = [0 for i in range(MAX_ARRAY_SIZE)]
 barWidth = 1.0
+playbackSpeed = 9.0
 
 #Colors
 BLUE = '#4B8BC0'
@@ -109,7 +110,7 @@ def main():
             arrayValues[i], arrayValues[0] = arrayValues[0], arrayValues[i]
             heapify(i, 0)
             dynamicDraw([RED if x == i else BLUE for x in range(n)])
-            time.sleep(0.03)
+            time.sleep(playbackSpeed/len(arrayValues))
         
         dynamicDraw([BLUE for x in range(len(arrayValues))])
 
@@ -146,7 +147,7 @@ def main():
             merge(start, middle, end)
 
             dynamicDraw([DARKESTBLUE if x >= start and x < middle else RED if x == middle else DARKBLUE if x > middle and x <=end else BLUE for x in range(len(arrayValues))])
-            time.sleep(0.03)
+            time.sleep(playbackSpeed/len(arrayValues))
 
         dynamicDraw([BLUE for x in range(len(arrayValues))])
 
@@ -168,7 +169,7 @@ def main():
             quickSort(start, pivotPosition - 1)
             quickSort(pivotPosition + 1, end)
             dynamicDraw([DARKESTBLUE if x >= start and x < pivotPosition else RED if x == pivotPosition else DARKBLUE if x > pivotPosition and x <=end else BLUE for x in range(len(arrayValues))])
-            time.sleep(0.03)
+            time.sleep(playbackSpeed/len(arrayValues))
             
         dynamicDraw([BLUE for x in range(len(arrayValues))])    
 
